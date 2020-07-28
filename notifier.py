@@ -2,6 +2,7 @@ import json
 import random
 import sys
 import time
+import os
 
 from hashlib import md5
 
@@ -22,10 +23,10 @@ with open(CREDENTIALS_FILE) as f:
 def create_tweet(tweet):
     tweet = tweet[:MAX_TWEET_LENGTH]
     api = twitter.Api(
-        consumer_key=tc["consumer_key"],
-        consumer_secret=tc["consumer_secret"],
-        access_token_key=tc["access_token_key"],
-        access_token_secret=tc["access_token_secret"],
+        consumer_key=os.environ['consumer_key'],
+        consumer_secret=os.environ["consumer_secret"],
+        access_token_key=os.environ["access_token_key"],
+        access_token_secret=os.environ["access_token_secret"],
     )
     resp = api.PostUpdate(tweet)
     # api.CreateFavorite(resp)

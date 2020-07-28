@@ -23,10 +23,10 @@ with open(CREDENTIALS_FILE) as f:
 def create_tweet(tweet):
     tweet = tweet[:MAX_TWEET_LENGTH]
     api = twitter.Api(
-        consumer_key=os.environ['consumer_key'],
-        consumer_secret=os.environ["consumer_secret"],
-        access_token_key=os.environ["access_token_key"],
-        access_token_secret=os.environ["access_token_secret"],
+        consumer_key=os.getenv["consumer_key"],
+        consumer_secret=os.getenv["consumer_secret"],
+        access_token_key=os.getenv["access_token_key"],
+        access_token_secret=os.getenv["access_token_secret"],
     )
     resp = api.PostUpdate(tweet)
     # api.CreateFavorite(resp)

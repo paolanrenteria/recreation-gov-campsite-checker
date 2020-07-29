@@ -10,7 +10,7 @@ from itertools import count, groupby
 
 import requests
 from fake_useragent import UserAgent
-ua = UserAgent(verify_ssl=False)
+ua = UserAgent(use_cache_server=False)
 
 
 LOG = logging.getLogger(__name__)
